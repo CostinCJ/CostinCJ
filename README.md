@@ -19,7 +19,7 @@ I build and ship real products end to end: from a live, paid events platform to 
 
 ---
 
-## 🛠️ Tech I work with
+## Tech I work with
 
 **Web:** TypeScript · Next.js · React · Tailwind CSS · Node.js
 **Mobile:** Flutter · Dart · Firebase
@@ -43,15 +43,8 @@ A full-stack events platform connecting verified hosts with a curated guest comm
 
 ---
 
-## GitHub stats
-
-![Costin's GitHub stats](https://github-readme-stats.vercel.app/api?username=CostinCJ&show_icons=true&hide_border=true&theme=default)
-![Top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=CostinCJ&layout=compact&hide_border=true)
-
----
-
 ## A bit about me
 
 I enjoy the full journey from idea to shipped product. Outside of code I'm into music recording and video editing.
 
-📫 Reach me at **[joldescosti@yahoo.com](mailto:joldescosti@yahoo.com)**
+Reach me at **[joldescosti@yahoo.com](mailto:joldescosti@yahoo.com)**
