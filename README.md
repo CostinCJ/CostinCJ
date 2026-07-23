@@ -11,7 +11,7 @@
 
 **Full-stack developer · CS graduate (Babeș-Bolyai University, Cluj-Napoca)**
 
-I build and ship real products end to end — from a live, paid events platform to mobile apps, web tools, and the occasional game. I care about clean architecture, practical UX, and things people actually use.
+I build and ship real products end to end: from a live, paid events platform to mobile apps, web tools, and the occasional game. I care about clean architecture, practical UX, and things people actually use.
 
 - 🚀 Founder & developer of **[Host4R](https://host4r.ro)** — a live events platform that has processed **10,000+ RON** in real payments
 - 🌍 Based in Cluj-Napoca, Romania · open to remote
