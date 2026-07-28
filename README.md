@@ -32,7 +32,7 @@ A multi-organiser summer-camp app for guides and kids, bilingual in Romanian and
 `Flutter` `Dart` `Riverpod` `go_router` `Firebase Auth` `Firestore` `Cloud Functions` `FCM`
 
 ### [Lache (pi-ai)](https://github.com/CostinCJ/pi-ai)
-A self-hosted, proactive AI companion that runs on a Raspberry Pi 5 and talks over Telegram. It keeps persistent memory in SQLite — durable facts with time decay, full history, rolling weekly profiles — and an autonomy loop that starts conversations on its own from schedule, music, weather and presence triggers, with quiet hours and engagement-aware back-off so it never turns spammy. Built test-first with 40+ test modules and a CI pipeline, and deployed as four systemd services on the Pi.
+A self-hosted, proactive AI companion that runs on a Raspberry Pi 5 and talks over Telegram. It keeps persistent memory in SQLite, durable facts with time decay, full history, rolling weekly profiles, and an autonomy loop that starts conversations on its own from schedule, music, weather and presence triggers, with quiet hours and engagement-aware back-off so it never turns spammy. Built test-first with 40+ test modules and a CI pipeline, and deployed as four systemd services on the Pi.
 `Python` `SQLite` `Telegram Bot API` `Groq (Llama 3.3 / Llama 4)` `Whisper` `systemd` `pytest`
 
 ### [Diploma Maker](https://github.com/CostinCJ/diploma-maker)
@@ -40,7 +40,7 @@ An offline desktop app that reads participant names from a photo of a printed li
 `Electron` `JavaScript` `Tesseract.js` `Vitest` `electron-builder`
 
 ### [TunesLayer](https://github.com/CostinCJ/TunesLayer)
-An anti-cheat-safe music overlay for Windows that controls Spotify, Apple Music, YouTube Music and anything else reporting to Windows Media Session — no login, no DLL injection, no game hooks. Global hotkeys keep working inside exclusive-fullscreen games, next to five themes, Discord presence and a now-playing widget for OBS. It stays under 50 MB of RAM and about 0.1% CPU, and excludes itself from screen capture so it never shows up in a recording.
+An anti-cheat-safe music overlay for Windows that controls Spotify, Apple Music, YouTube Music and anything else reporting to Windows Media Session: no login, no DLL injection, no game hooks. Global hotkeys keep working inside exclusive-fullscreen games, next to five themes, Discord presence and a now-playing widget for OBS. It stays under 50 MB of RAM and about 0.1% CPU, and excludes itself from screen capture so it never shows up in a recording.
 `C#` `.NET 8` `Windows Media Session (SMTC)`
 
 ### [StringTracker](https://github.com/CostinCJ/StringTracker)
@@ -51,6 +51,6 @@ A guitar inventory app for players and small shops, with full CRUD over the coll
 
 ## A bit about me
 
-I enjoy the full journey from idea to shipped product. I spend my summers as a camp guide, which is where CampConnect and Diploma Maker come from — both are tools for work I actually do. Outside of code I record guitar music and edit video, which is probably why I keep building things related to it.
+I enjoy the full journey from idea to shipped product. I spend my summers as a camp guide, which is where CampConnect and Diploma Maker come from; both are tools for work I actually do. Outside of code I record guitar music and edit video, which is probably why I keep building things related to it.
 
 Reach me at **[joldescosti@yahoo.com](mailto:joldescosti@yahoo.com)**
