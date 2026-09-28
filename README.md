@@ -1,56 +1,76 @@
 # Hi, I'm Costin
 
-**Full-stack developer, CS graduate (Babeș-Bolyai University, Cluj-Napoca)**
+**Full-stack developer · M.Sc. Software Engineering student at Babeș-Bolyai University, Cluj-Napoca**
 
-I build and ship real products end to end: from a live, paid events platform to mobile apps, web tools, and the occasional game. I care about clean architecture, practical UX, and things people actually use.
+I build and run real products end to end, from a live payments platform to mobile apps, LLM agents and desktop tools. I care most about correctness: payments that never double-charge, data that stays where it should, and tests in CI that catch it when something breaks.
 
-- Founder and developer of **[Host4R](https://host4r.ro)**, a live events platform that has processed **10,000+ RON** in real payments
-- Based in Cluj-Napoca, Romania. Open to remote
-- [joldescosti@yahoo.com](mailto:joldescosti@yahoo.com) | [LinkedIn](https://www.linkedin.com/in/costincj/)
+- Founder and sole developer of **[Host4R](https://host4r.ro)**, a live events marketplace that has processed **10,000+ RON** in real payments
+- Hands-on with LLMs: a tool-calling agent that runs unattended on a Raspberry Pi, a real-time voice coach, and an on-device model I evaluated and deliberately retired when it wasn't reliable enough
+- Based in Cluj-Napoca, Romania · **Open to remote** · Romanian (native), English (C1–C2)
+
+[joldescosti@yahoo.com](mailto:joldescosti@yahoo.com) · [LinkedIn](https://www.linkedin.com/in/costincj/) · [host4r.ro](https://host4r.ro)
 
 ---
 
 ## Tech I work with
 
-**Web:** TypeScript, Next.js, React, Tailwind CSS, Node.js
-**Desktop:** Electron
-**Mobile:** Flutter, Dart, Firebase
-**Backend & Data:** PostgreSQL, Prisma, Stripe, NextAuth, REST APIs
-**Languages:** Python, C++, C#, JavaScript
-**Tools:** Git, Cloudflare R2
+**Languages:** TypeScript, JavaScript, Python, SQL, Dart, C#, C++, PHP  
+**Frontend & mobile:** React, Next.js (App Router), Tailwind CSS, Zustand, React Native (Expo), Flutter, Riverpod  
+**Backend & data:** Node.js, Express, REST, WebSockets, PostgreSQL, Prisma, Redis, Firebase / Firestore, Supabase, Stripe, NextAuth / JWT  
+**AI & LLMs:** tool-calling agents, prompt and context engineering, grounding and evaluation, OpenAI Realtime API, Groq / Llama, Whisper, llama.cpp  
+**Testing & ops:** Vitest, Jest, Playwright, pytest, GitHub Actions, Docker, Sentry, Vercel, AWS, Cloudflare R2, Linux / systemd
 
 ---
 
 ## Featured projects
 
-### [Host4R](https://host4r.ro), Founder & Full-Stack Developer
-An invite-only, full-stack events platform connecting verified hosts with a curated guest community. **Live in production with real users and 10,000+ RON processed.** Subscription tiers, host payouts, application vetting, reviews, and a referral system, all built and shipped solo.
-`Next.js 16` `React 19` `TypeScript` `Tailwind` `PostgreSQL` `Prisma` `NextAuth` `Stripe` `Cloudflare R2`
+### [Host4R](https://host4r.ro): Founder & Full-Stack Developer · *live in production*
+An invite-only events marketplace with separate user, host and admin roles, built and launched solo. **10,000+ RON processed** through Stripe Checkout, subscriptions and Connect payouts.
+- **Reliability:** idempotent Stripe webhooks (retries never double-process), a transactional email outbox with dead-lettering, serializable-transaction retries, and Redis-based cron locks after finding that Postgres advisory locks silently fail behind Supabase's connection pooler
+- **Quality:** 50+ Vitest test files, Playwright end-to-end suites per role, GitHub Actions CI with a coverage gate, Sentry, 38 Prisma migrations, a production runbook and GDPR documentation (DPIA, RoPA, breach response)
+
+`Next.js 16` `React 19` `TypeScript` `PostgreSQL` `Prisma` `Stripe` `Redis` `NextAuth` `Vercel` `Sentry`
+
+*The source is private because it's a live commercial product. I'm happy to walk through it in an interview.*
+
+### [Lache: AI Companion](https://github.com/CostinCJ/pi-ai)
+A self-hosted, proactive LLM agent on Telegram running on a Raspberry Pi 5. It uses tool calling (web search, reminders), keeps persistent SQLite memory with time-decaying facts, and runs an autonomy loop that starts conversations from context triggers (schedule, music, weather, presence), with quiet hours and engagement-aware back-off. Responses are validated with a single corrective retry, and it runs unattended as systemd services with encrypted backups, alerting and a hardened server.
+
+`Python` `Groq (Llama 3.3 70B / Llama 4 Scout)` `Whisper` `SQLite` `pytest` `systemd` `GitHub Actions`
 
 ### [CampConnect](https://github.com/CostinCJ/CampConnect)
-A multi-organiser summer-camp app for guides and kids, bilingual in Romanian and Hungarian plus English. Guides register an organisation, create camp sessions, manage teams, post announcements and schedules, run a points leaderboard and send emergency alerts; kids join with a `CAMP-XXXX` code over anonymous sign-in and keep an on-device journal. Roles and camp membership are assigned server-side by Cloud Functions rather than trusted from the client, and the org-scoped Firestore rules have their own test suite.
-`Flutter` `Dart` `Riverpod` `go_router` `Firebase Auth` `Firestore` `Cloud Functions` `FCM`
+A multi-organisation summer-camp app (Romanian / Hungarian / English) **used at real camps**: announcements, schedules, points leaderboards, a camp map and emergency alerts. Tenant isolation is enforced server-side through custom claims set by Cloud Functions, never trusted from the client, and the Firestore rules have their own test suite. I also built an on-device LLM assistant (Qwen2.5-0.5B via llama.cpp) with an evaluation harness for recall, out-of-scope and hallucination cases, then retired it after evaluation for child-safety and build-reliability reasons.
 
-### [Lache (pi-ai)](https://github.com/CostinCJ/pi-ai)
-A self-hosted, proactive AI companion that runs on a Raspberry Pi 5 and talks over Telegram. It keeps persistent memory in SQLite, durable facts with time decay, full history, rolling weekly profiles, and an autonomy loop that starts conversations on its own from schedule, music, weather and presence triggers, with quiet hours and engagement-aware back-off so it never turns spammy. Built test-first with 40+ test modules and a CI pipeline, and deployed as four systemd services on the Pi.
-`Python` `SQLite` `Telegram Bot API` `Groq (Llama 3.3 / Llama 4)` `Whisper` `systemd` `pytest`
+`Flutter` `Dart` `Riverpod` `Firebase` `Cloud Functions` `Firestore rules tests` `Crashlytics`
+
+### [Ciuri](https://github.com/CostinCJ/Ciuri) · [play it](https://ciuri.vercel.app)
+A real-time, four-player online card game with a Hungarian deck, featuring two-stage bidding, turn timers, chat and computer players. The server is authoritative: a pure, unit-tested TypeScript game engine validates every move, and Postgres row-level security means each player can only ever read their **own** hand.
+
+`Next.js 16` `TypeScript` `Supabase (Postgres, Realtime, RLS)` `Zod` `Vitest` `Playwright`
+
+### [Apex Live](https://github.com/CostinCJ/Apex-Live)
+An AI voice fitness coach for iOS and Android built on the OpenAI Realtime API, reached through a key-protecting server proxy. It uses JWT-authenticated WebSockets with heartbeat and exponential-backoff reconnection, an offline sync queue, HealthKit / Health Connect data and crash-safe workout state.
+
+`React Native (Expo)` `TypeScript` `Express` `PostgreSQL` `Prisma` `WebSockets` `Jest` `GitHub Actions`
 
 ### [Diploma Maker](https://github.com/CostinCJ/diploma-maker)
-An offline desktop app that reads participant names from a photo of a printed list and prints one camp diploma per person, replacing an evening of hand-writing them. It handles children's names, so privacy is a functional requirement, not a feature: the Romanian OCR model ships inside the installer, no HTTP code exists anywhere in the app, and it runs correctly with networking disabled. Five ways to get the list in (photo OCR, paste, `.docx`/`.xlsx`/`.csv`, typing, by hand), editable templates with live preview, and atomic saves so a crash can't truncate the list.
+An offline Electron app that reads names from a photo of a printed list with on-device OCR and prints one camp diploma per person. It handles children's names, so there's no network access by design and the data never leaves the machine. It ships as a Windows installer with in-app updates.
+
 `Electron` `JavaScript` `Tesseract.js` `Vitest` `electron-builder`
 
-### [TunesLayer](https://github.com/CostinCJ/TunesLayer)
-An anti-cheat-safe music overlay for Windows that controls Spotify, Apple Music, YouTube Music and anything else reporting to Windows Media Session: no login, no DLL injection, no game hooks. Global hotkeys keep working inside exclusive-fullscreen games, next to five themes, Discord presence and a now-playing widget for OBS. It stays under 50 MB of RAM and about 0.1% CPU, and excludes itself from screen capture so it never shows up in a recording.
-`C#` `.NET 8` `Windows Media Session (SMTC)`
-
-### [StringTracker](https://github.com/CostinCJ/StringTracker)
-A guitar inventory app for players and small shops, with full CRUD over the collection and filtering by manufacturer, type, condition, string count and price. A price analytics view surfaces statistics and category highlights across the whole inventory, so it answers what the collection is worth and not just what is in it.
-`Next.js` `React` `TypeScript` `Node.js`
+### More
+- **[TunesLayer](https://github.com/CostinCJ/TunesLayer):** an anti-cheat-safe music overlay for Windows games, with global hotkeys, Discord presence and an OBS widget · `C#` `.NET 8` `WPF`
+- **[StringTracker](https://github.com/CostinCJ/StringTracker):** a guitar inventory app with auth, filtering and price analytics, Dockerized and deployed to AWS ECS · `Next.js` `TypeORM` `PostgreSQL` `Docker` `AWS`
 
 ---
 
-## A bit about me
+## Experience & education
 
-I enjoy the full journey from idea to shipped product. I spend my summers as a camp guide, which is where CampConnect and Diploma Maker come from; both are tools for work I actually do. Outside of code I record guitar music and edit video, which is probably why I keep building things related to it.
+- **Founder & Full-Stack Developer**, Host4R · *Oct 2025 – present*
+- **Analyst (part-time)**, Fiind Yourself S.R.L. · *Jan 2026 – present*
+- **M.Sc. Software Engineering**, Babeș-Bolyai University · *2026 – 2028, in progress*
+- **B.Sc. Computer Science**, Babeș-Bolyai University · *2023 – 2026*
 
-Reach me at **[joldescosti@yahoo.com](mailto:joldescosti@yahoo.com)**
+## Outside of code
+
+I spent last summer as a camp guide in the Apuseni Mountains, which is where CampConnect and Diploma Maker come from: both are tools for work I actually did. I've played guitar and bass for four years and record at home in Ableton Live.
